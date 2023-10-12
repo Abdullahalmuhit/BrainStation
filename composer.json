@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "mrdebug/crudgen": "^1.9"
+    }
+}
