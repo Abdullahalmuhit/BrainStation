@@ -17,7 +17,7 @@ class CheckPaymentController extends Controller
         $session_token = $_GET['session_token'];
         $status = $_GET['status'];
 
-        $api_url_by_brain = "https://brain/tranjection";
+        $api_url_by_brain = "http://127.0.0.1:8000/";
 
         $url = $api_url_by_brain . "/api/v2/BrainService/TransactionVerificationWithToken";
 

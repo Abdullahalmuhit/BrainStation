@@ -10,4 +10,9 @@ class Student extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function studentPayments()
+    {
+        return $this->hasMany(StudentPayment::class, 'student_id', 'id');
+    }
+
 }

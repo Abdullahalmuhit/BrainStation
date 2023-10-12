@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 class PaymentController extends Controller
 {
     public function studentStore(Request $request){
-        dd("muhit");
         $defaultPassword = 'secret';
         $student = Student::create([
             'name' => $request->name,
@@ -155,7 +154,7 @@ class PaymentController extends Controller
             if($response_arr2 && $response_arr2['status'] == '200' ){
                 $redirect_url = $UI_url_by_brain . $response_arr2['session_token'];
 
-                $updateUser =  Student::where('invoice_no', $invoice_no)->first();
+                $updateUser =  Student::with(['studentPayments'])->where('invoice_no', $invoice_no)->first();
                 $paymentType = 'Student Fee';
                 $updateUsers = StudentPayment::updateOrCreate([
                     'student_id' => $updateUser->id,
